@@ -26,12 +26,19 @@ $hash = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f";
 
 //Create a new wallet, letting Blockchain generate a new private key. Returns a WalletResponse object.
 $wallet = $Blockchain->Create->create($password, $email=null, $label=null);
-
 $output_address = json_encode($wallet);
-echo $output_address;
+if($_GET['method'] == 'createAddress')
+{
+	echo $output_address;
+}
 
 //Exchange USD to BTC
-//$btc_amount = $Blockchain->Rates->toBTC(6000, 'USD');
+if($_GET['method'] == 'changeCoin') {
+	$btc_amount = $Blockchain->Rates->toBTC($_GET['coin'], 'USD');
+	$output_coin = json_encode($btc_amount);
+	echo $output_coin;
+}
+
 //Convert Bitcoin to Fiat Currency
 //$one_btc_in_usd = $Blockchain->Rates->fromBTC(100000, 'USD');
 
@@ -42,7 +49,10 @@ echo $output_address;
 
 $Blockchain->Wallet->credentials($main_id, $password);
 
-//$balance = $Blockchain->Wallet->getBalance();
+$balance = $Blockchain->Wallet->getBalance();
+if($_GET['method'] == 'getBalance') {
+	echo $balance;
+}
 //print_r($balance);
 
 //$balance = $Blockchain->Wallet->getAddressBalance($addressFrom);
@@ -53,8 +63,11 @@ $Blockchain->Wallet->credentials($main_id, $password);
 
 //print_r($balanceTo);
 
-//$response = $Blockchain->Wallet->send($addressTo, "0.00000000", $addressFrom, "0.0000");
+if($_GET['method'] == 'transaction') {
 
-//print_r($response);
+	$response = $Blockchain->Wallet->send($addressTo, "0.00000000", $addressFrom, "0.0000");
+
+	print_r($response);
+}
 
 ?>
