@@ -8,6 +8,7 @@ if(file_exists('code.txt')) {
 }
 
 $Blockchain = new \Blockchain\Blockchain($api_code);
+$Blockchain->setServiceUrl('http://localhost:3000');
 
 $wallet = $Blockchain->Create->create('weakPassword01!');
 

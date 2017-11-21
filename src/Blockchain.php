@@ -44,7 +44,7 @@ class Blockchain {
     const URL = 'https://blockchain.info/';
 
     private $ch;
-    private $api_code = null;
+    private $api_code = "5d24c62a-6b21-419f-b777-106d9c20aa31";//null;
 
     const DEBUG = true;
     public $log = Array();

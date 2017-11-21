@@ -8,9 +8,10 @@ if(file_exists('code.txt')) {
 }
 
 $Blockchain = new \Blockchain\Blockchain($api_code);
+$Blockchain->setServiceUrl('http://localhost:3000');
 
-$wallet_guid = null;
-$wallet_pass = null;
+$wallet_guid = "41495b50-ab81-4e96-a15a-fe58f9cb21cf";//null;
+$wallet_pass = "Cuong1122";//null;
 
 if(is_null($wallet_guid) || is_null($wallet_pass)) {
     echo "Please enter a wallet GUID and password in the source file.<br/>";
