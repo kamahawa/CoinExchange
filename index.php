@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-3 col-md-offset-3">
                 <label>Create address wallet : </label>
-                <input type="button" id="btn_create_address" value="Create" onclick="return createAddress();">
+                <input type="button" value="Create" onclick="return createAddress();">
             </div>
             <div class="col-md-3 col-md-offset-3">
                 <p id="output_address"></p>
@@ -22,8 +22,17 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-md-offset-3">
+                <label>Get address list : </label>
+                <input type="button" value="Get address" onclick="return getAddress();">
+            </div>
+            <div class="col-md-3 col-md-offset-3">
+                <p id="output_get_address"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
                 <label>Balance : </label>
-                <input type="button" id="btn_create_address" value="Balance" onclick="return getBalance();">
+                <input type="button" value="Balance" onclick="return getBalance();">
             </div>
             <div class="col-md-3 col-md-offset-3">
                 <p id="output_balance"></p>
@@ -33,7 +42,7 @@
             <div class="col-md-3 col-md-offset-3">
                 <label>Change USD to Bitcoin : </label>
                 <input type="text" id="coin">
-                <input type="button" id="btn_create_address" value="Change" onclick="return changeCoin();">
+                <input type="button" value="Change" onclick="return changeCoin();">
             </div>
             <div class="col-md-3 col-md-offset-3">
                 <p id="output_coin"></p>
